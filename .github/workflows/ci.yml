@@ -1,0 +1,58 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+jobs:
+  test-build:
+    name: Test and Build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Set up Go
+        uses: actions/setup-go@v6
+        with:
+          go-version-file: "go.mod"
+          cache: true
+
+      - name: Check formatting
+        run: test -z "$(gofmt -l .)"
+
+      - name: Run tests with coverage
+        run: go test ./... -coverprofile=coverage.out -covermode=atomic
+
+      - name: Run go vet
+        run: go vet ./...
+
+      - name: Generate coverage summary
+        run: |
+          go tool cover -func=coverage.out | tee coverage.txt
+          {
+            echo "## Coverage"
+            echo ""
+            echo '```text'
+            cat coverage.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload coverage artifact
+        uses: actions/upload-artifact@v6
+        with:
+          name: coverage-report
+          path: |
+            coverage.out
+            coverage.txt
+          if-no-files-found: error
+
+      - name: Build
+        run: go build ./...
