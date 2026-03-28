@@ -26,6 +26,11 @@ go tool cover -func=coverage.out
 gofmt -w .
 ```
 
+## Go 版本
+
+- `go.mod` 当前最低版本要求：`Go 1.18`
+- CI / release 测试矩阵当前覆盖：`Go 1.18` 和 `Go 1.25`
+
 ## 架构概览
 
 ```text

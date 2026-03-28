@@ -8,6 +8,8 @@
 
 A cross-platform DNS benchmarking tool that helps you find the fastest and most stable DNS servers for your network environment.
 
+Minimum supported Go version: `1.18`
+
 ## Features
 
 - Prebuilt binaries for Windows, macOS, and Linux on `amd64` / `arm64`

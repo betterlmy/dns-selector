@@ -19,8 +19,12 @@ env:
 
 jobs:
   test:
-    name: Format Check and Test
+    name: Format Check and Test (Go ${{ matrix.go-version }})
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        go-version: ["1.18", "1.25"]
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
@@ -30,7 +34,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v6
         with:
-          go-version-file: "go.mod"
+          go-version: ${{ matrix.go-version }}
           cache: true
 
       - name: Check formatting

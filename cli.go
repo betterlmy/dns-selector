@@ -236,7 +236,7 @@ func printResultsTable(results []selector.BenchmarkResult, msgs messages) {
 		})
 	}
 
-	table.Header(header)
+	table.SetHeader(header)
 	table.Render()
 }
 
