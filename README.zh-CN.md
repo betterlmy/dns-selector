@@ -2,6 +2,8 @@
 
 [English README](./README.md)
 
+[![Continuous Integration](https://github.com/betterlmy/dns-selector/actions/workflows/ci.yml/badge.svg)](https://github.com/betterlmy/dns-selector/actions/workflows/ci.yml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/betterlmy/dns-selector)](https://goreportcard.com/report/github.com/betterlmy/dns-selector)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 跨平台 DNS 基准测试工具，帮你找出当前网络环境下最快、最稳定的 DNS 服务器。

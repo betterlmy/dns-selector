@@ -2,6 +2,8 @@
 
 [中文文档](./README.zh-CN.md)
 
+[![Continuous Integration](https://github.com/betterlmy/dns-selector/actions/workflows/ci.yml/badge.svg)](https://github.com/betterlmy/dns-selector/actions/workflows/ci.yml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/betterlmy/dns-selector)](https://goreportcard.com/report/github.com/betterlmy/dns-selector)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 A cross-platform DNS benchmarking tool that helps you find the fastest and most stable DNS servers for your network environment.
